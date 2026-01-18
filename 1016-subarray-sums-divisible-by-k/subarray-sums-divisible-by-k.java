@@ -1,6 +1,7 @@
 class Solution {
     public int subarraysDivByK(int[] nums, int k) {
         int n=nums.length;
+        if(k==0)return 0;
         int p[]=new int[n];
         int count=0;
         p[0]=nums[0];
