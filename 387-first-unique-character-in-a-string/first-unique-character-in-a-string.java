@@ -1,5 +1,12 @@
 class Solution {
     public int firstUniqChar(String s) {
+        // approach
+        
+// ✅ Idea
+
+// First pass → Count frequency of each character.
+
+// Second pass → Find the first character whose frequency is 1.
 
         HashMap<Character,Integer>ss=new HashMap<>();
         for(char c:s.toCharArray()){
