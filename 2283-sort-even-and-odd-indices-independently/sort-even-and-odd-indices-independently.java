@@ -1,27 +1,30 @@
-import java.util.*;
 class Solution {
     public int[] sortEvenOdd(int[] nums) {
-        // take two list k
-        ArrayList<Integer>even=new ArrayList<>();
-        ArrayList<Integer>old=new ArrayList<>();
-        for(int i=0;i<nums.length;i++){
+        int n=nums.length;
+
+        int even[]=new int[(n+1)/2];
+        int odd[]=new int[n/2];
+
+int e=0,o=0;
+        for(int i=0;i<n;i++){
             if(i%2==0){
-                even.add(nums[i]);
+                even[e++]=nums[i];
             }else{
-                old.add(nums[i]);
+                odd[o++]=nums[i];
             }
         }
-        Collections.sort(even);
-        Collections.sort(old,Collections.reverseOrder());
-        int e=0;
-        int o=0;
-        for(int i=0;i<nums.length;i++){
+        Arrays.sort(even);
+        Arrays.sort(odd);
+
+        e=0;
+        o=odd.length-1;
+        for(int i=0;i<n;i++){
             if(i%2==0){
-                nums[i]=even.get(e++);
+                nums[i]=even[e++];
             }else{
-                nums[i]=old.get(o++);
+                nums[i]=odd[o--];
             }
-        }return nums;
-        
+        }
+        return nums;
     }
 }
